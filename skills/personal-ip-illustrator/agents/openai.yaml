@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal IP Illustrator"
+  short_description: "Create reusable visual IP illustration systems"
+  default_prompt: "Use $personal-ip-illustrator to create a reusable visual IP and illustration plan for my article."

@@ -1,13 +1,15 @@
 :root {
   color-scheme: light;
-  --ink: #101820;
-  --muted: #5e6a72;
-  --line: #d9e0e5;
-  --soft: #f5f8fa;
+  --ink: #111820;
+  --muted: #5b6570;
+  --line: #d8dee4;
+  --soft: #f6f7f3;
   --panel: #ffffff;
-  --green: #27b36a;
-  --green-soft: #e8f7ef;
-  --gray: #eef2f4;
+  --paper: #fffdf3;
+  --paper-edge: #e9e1c8;
+  --green: #19a765;
+  --green-soft: #dff5ea;
+  --gray: #eef1f2;
 }
 
 * {
@@ -18,7 +20,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background: #eef2f4;
+  background: #eef1f2;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -27,16 +29,16 @@ body {
   min-height: 960px;
   padding: 48px;
   background:
-    linear-gradient(90deg, rgba(16, 24, 32, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(16, 24, 32, 0.035) 1px, transparent 1px),
-    #f7fafb;
+    linear-gradient(90deg, rgba(17, 24, 32, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 24, 32, 0.035) 1px, transparent 1px),
+    #f8faf8;
   background-size: 32px 32px;
 }
 
 .shell {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 18px 60px rgba(16, 24, 32, 0.10);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 60px rgba(17, 24, 32, 0.10);
 }
 
 .topbar {
@@ -60,9 +62,9 @@ body {
   width: 28px;
   height: 28px;
   border: 2px solid var(--ink);
-  border-radius: 7px;
+  border-radius: 7px 7px 3px 7px;
   position: relative;
-  background: #fff;
+  background: var(--paper);
 }
 
 .mark::after {
@@ -104,7 +106,7 @@ body {
   grid-template-columns: 1fr auto;
   gap: 24px;
   align-items: end;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
 h1 {
@@ -124,7 +126,6 @@ h1 {
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   color: var(--green);
   font-size: 13px;
   font-weight: 760;
@@ -148,15 +149,15 @@ h1 {
 }
 
 .candidate {
-  min-height: 245px;
+  min-height: 270px;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 14px;
+  grid-template-rows: auto 118px auto 1fr;
+  gap: 10px;
 }
 
 .candidate.selected {
   border-color: var(--green);
-  box-shadow: inset 0 0 0 2px rgba(39, 179, 106, 0.28);
+  box-shadow: inset 0 0 0 2px rgba(25, 167, 101, 0.22);
 }
 
 .candidate-head {
@@ -192,17 +193,22 @@ h1 {
   font-weight: 760;
 }
 
-.sketch {
-  height: 88px;
-  border: 1px dashed #b9c5cc;
-  background: var(--soft);
+.preview {
+  border: 1px solid #cfd6dc;
+  background:
+    linear-gradient(90deg, rgba(17, 24, 32, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 24, 32, 0.025) 1px, transparent 1px),
+    #fbfcfb;
+  background-size: 20px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
-  font-size: 13px;
-  text-align: center;
-  padding: 10px;
+  overflow: hidden;
+}
+
+.preview svg {
+  width: 100%;
+  height: 100%;
 }
 
 p {
@@ -217,106 +223,46 @@ p {
 
 .ip-layout {
   display: grid;
-  grid-template-columns: 390px 1fr;
+  grid-template-columns: 510px 1fr;
   gap: 24px;
 }
 
-.robot-panel {
+.character-board {
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, #fff, #f7fafb);
-  min-height: 540px;
+  background: linear-gradient(180deg, #fff, #fafbf8);
+  min-height: 560px;
+  padding: 22px;
+  display: grid;
+  grid-template-rows: 1fr 118px;
+  gap: 14px;
+}
+
+.pose-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.pose {
+  border: 1px solid var(--line);
+  background: #fff;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hero-character {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.robot {
-  width: 180px;
-  height: 260px;
-  position: relative;
-}
-
-.robot .head {
-  width: 128px;
-  height: 112px;
-  border: 4px solid var(--ink);
-  border-radius: 26px;
-  margin: 0 auto;
-  background: #fff;
-  position: relative;
-}
-
-.robot .head::before,
-.robot .head::after {
-  content: "";
-  position: absolute;
-  top: 45px;
-  width: 12px;
-  height: 12px;
-  border: 3px solid var(--ink);
-  border-radius: 50%;
-  background: #fff;
-}
-
-.robot .head::before {
-  left: 32px;
-}
-
-.robot .head::after {
-  right: 32px;
-}
-
-.robot .signal {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--green);
-  position: absolute;
-  right: 22px;
-  top: -12px;
-  border: 4px solid #fff;
-}
-
-.robot .body {
-  width: 104px;
-  height: 104px;
-  border: 4px solid var(--ink);
-  border-radius: 22px;
-  margin: 14px auto 0;
-  background: #f8fafb;
-  position: relative;
-}
-
-.robot .body::before {
-  content: "";
-  position: absolute;
-  left: 26px;
-  right: 26px;
-  top: 30px;
-  height: 4px;
-  background: var(--green);
-}
-
-.robot .probe {
-  position: absolute;
-  width: 84px;
-  height: 4px;
-  background: var(--ink);
-  right: -12px;
-  top: 164px;
-  transform: rotate(-28deg);
-  transform-origin: left center;
-}
-
-.robot .probe::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: -4px;
-  width: 10px;
-  height: 10px;
-  background: var(--green);
-  border-radius: 50%;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(25, 167, 101, 0.10), transparent 32%),
+    #fff;
 }
 
 .info-stack {
@@ -342,10 +288,10 @@ ul {
 }
 
 .plan-card {
-  min-height: 470px;
+  min-height: 510px;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 14px;
+  grid-template-rows: auto 148px auto 1fr auto;
+  gap: 13px;
 }
 
 .position {
@@ -366,7 +312,7 @@ ul {
 
 .prompt {
   border: 1px solid var(--line);
-  background: #f7fafb;
+  background: #f7faf8;
   padding: 12px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color: #33414b;
@@ -382,7 +328,7 @@ ul {
 
 .tree {
   border: 1px solid var(--line);
-  background: #101820;
+  background: #111820;
   color: #e9f1f4;
   padding: 24px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -417,4 +363,42 @@ ul {
   margin-top: 24px;
   color: var(--muted);
   font-size: 13px;
+}
+
+.ink {
+  stroke: #111820;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.thin {
+  stroke: #111820;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.paper {
+  fill: var(--paper);
+}
+
+.paper2 {
+  fill: #f8f2dc;
+}
+
+.green {
+  fill: var(--green);
+}
+
+.green-stroke {
+  stroke: var(--green);
+}
+
+.muted-fill {
+  fill: #d9dedc;
+}
+
+.none {
+  fill: none;
 }

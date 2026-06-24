@@ -2,17 +2,18 @@
 
 This is a traceable run of `personal-ip-illustrator` against `examples/demo-input-article.md`.
 
+This run applies a stricter IP quality bar: distinctive silhouette, reusable content metaphor, recognizable props, action range, and anti-drift rules.
+
 ## Run metadata
 
 - Date: 2026-06-24
 - Skill: `personal-ip-illustrator`
 - Skill source: `skills/personal-ip-illustrator/SKILL.md`
-- Base commit before this run was recorded: `c658ce8`
 - Input article: `examples/demo-input-article.md`
 - Creator context: AI engineering practice, independent developers and technical leads, WeChat / Xiaohongshu / technical blog
 - Mode: full run + export personal skill
 - Reference images: none provided in this run
-- Image generation mode: prompt-first. This run records the candidate selection surface and final prompts, without pretending that final model-rendered artwork exists.
+- Image generation mode: visual-direction run. The screenshots show the actual run result pages and visual IP draft surfaces, not standalone marketing diagrams.
 
 ## 1. Article visual diagnosis
 
@@ -28,182 +29,189 @@ Recommended density: 3 article insert illustrations.
 
 ## 2. Visual Candidate Sheet
 
-Selection instruction: choose the candidate that feels closest to the creator's long-term visual IP. Feedback should be visual and simple: keep, remove, make more/less, or combine.
+Selection instruction: choose the candidate that can survive repeated use across technical articles, not merely the one that looks cute in a single scene.
 
 ```json
 {
   "candidate_sheet": {
     "format": "image_grid",
     "count": 6,
-    "selection_instruction": "Choose the image closest to the IP you want. You can also say what to keep and what to remove.",
+    "selection_instruction": "Choose the image closest to the long-term personal IP you want. Judge silhouette, role, props, and whether it can carry many future articles.",
     "candidates": [
       {
         "id": "ip_a",
-        "name": "Circuit Guide",
-        "entity_type": "robot",
-        "one_line_identity": "A calm circuit guide that helps readers find the signal path inside messy AI workflows.",
-        "why_it_fits": "It naturally explains systems, failure points, observability, and workflow structure without becoming a generic human lecturer.",
-        "image_prompt": "Minimal editorial character sheet for Circuit Guide, a small calm robot made from clean circuit-line shapes, compact silhouette, circuit-node head, cool-gray and white body, one signal-green accent light, small probe accessory, one neutral pose and one pose pointing at a workflow board, large white space, thin black lines, no cyberpunk, no cute toy style."
+        "name": "Signal Tailor",
+        "entity_type": "fictional_species",
+        "one_line_identity": "A folded field-note figure that stitches loose AI workflows into reliable delivery systems.",
+        "why_it_fits": "It turns workflow repair into a visible personal metaphor: thread, seams, checkpoints, and broken process edges.",
+        "image_prompt": "Character sheet for Signal Tailor, a small folded-paper field-note figure with a triangular folded hood, one square signal-green visor, off-white paper body, black stitch marks, a green thread spool, and a needle-like probe. Show neutral pose, stitching a broken workflow line, and pointing at a checkpoint. Minimal editorial ink-and-paper style, strong silhouette, white space, one signal-green accent, no cute mascot exaggeration, no robot, no cyberpunk."
       },
       {
         "id": "ip_b",
-        "name": "Log Lens",
-        "entity_type": "object",
-        "one_line_identity": "A quiet inspection lens that makes hidden workflow states visible.",
-        "why_it_fits": "Good for observability and debugging posts, but weaker when the article needs an active guide.",
-        "image_prompt": "Minimal line editorial character sheet for Log Lens, a compact magnifying lens with a small status light and clean handle, one neutral pose and one pose hovering above a workflow trace, cool gray, white, one signal-green accent, no detective costume, no busy dashboard."
+        "name": "Blackbox Diver",
+        "entity_type": "fictional_species",
+        "one_line_identity": "A small deep-diving inspector that enters black-box systems and returns with evidence.",
+        "why_it_fits": "Good for debugging and observability, but it may become too narrow for creator-wide article use.",
+        "image_prompt": "Minimal editorial character sheet for Blackbox Diver, compact hooded inspector with square observation window, carrying a small evidence tube, exploring a dark workflow box, one green signal mark, no sci-fi armor."
       },
       {
         "id": "ip_c",
-        "name": "Input Gate",
-        "entity_type": "symbol",
-        "one_line_identity": "A small gatekeeper symbol that separates valid inputs from unstable noise.",
-        "why_it_fits": "Strong for boundary-setting content, but too narrow for articles about end-to-end workflows.",
-        "image_prompt": "Minimal geometric symbol mascot, small input gate with two clean panels and signal-green validation dot, one neutral front pose and one pose sorting cards into accepted and rejected lanes, restrained technical editorial style, no fantasy castle, no shield logo."
+        "name": "Boundary Clerk",
+        "entity_type": "object",
+        "one_line_identity": "A strict little form clerk that stamps valid inputs and rejects noisy requests.",
+        "why_it_fits": "Strong for input boundary topics, but it overfits one part of the workflow lifecycle.",
+        "image_prompt": "Flat editorial object character, small standing stamp clerk with paper tabs, sorting input cards into accepted and rejected lanes, green approval mark, no office cartoon, no human face."
       },
       {
         "id": "ip_d",
-        "name": "State Lantern",
+        "name": "Fallback Lantern",
         "entity_type": "object",
-        "one_line_identity": "A small lantern that illuminates the middle state of a process.",
-        "why_it_fits": "Memorable for visibility and diagnosis, but may feel too poetic for engineering operations.",
-        "image_prompt": "Minimal editorial object character sheet, compact lantern with simple wireframe handle and one signal-green core, shown standing quietly and illuminating a hidden middle stage in a workflow map, thin black line work, cool-gray shadows, no warm fantasy lighting, no steampunk."
+        "one_line_identity": "A quiet lantern that lights the safe path when a workflow fails.",
+        "why_it_fits": "Memorable recovery metaphor, but less active as a recurring guide across technical essays.",
+        "image_prompt": "Ink-and-paper editorial object character, small lantern with green core illuminating a fallback route, restrained white and gray palette, no fantasy, no steampunk."
       },
       {
         "id": "ip_e",
-        "name": "Rollback Shuttle",
-        "entity_type": "object",
-        "one_line_identity": "A small shuttle that can return a failed workflow to a safe point.",
-        "why_it_fits": "Useful for failure recovery topics, but it over-indexes on fallback paths.",
-        "image_prompt": "Minimal technical editorial character sheet, tiny rollback shuttle with loop-arrow detail, cool gray body, one signal-green checkpoint light, neutral pose and pose returning to a previous workflow node, no sci-fi spaceship, no neon, no dramatic speed lines."
+        "name": "Trace Scribe",
+        "entity_type": "symbol",
+        "one_line_identity": "A moving pen mark that turns workflow runs into readable traces.",
+        "why_it_fits": "Useful for logs and traces, but the silhouette is harder to recognize across scenes.",
+        "image_prompt": "Minimal line-art symbol character, moving pen stroke with green trace dots, drawing a workflow route, strong white space, no handwritten mess."
       },
       {
         "id": "ip_f",
-        "name": "Trace Cartographer",
-        "entity_type": "abstract_creature",
-        "one_line_identity": "A map-making trace node that turns a workflow run into a readable route.",
-        "why_it_fits": "Strong metaphor for tracing, but less instantly recognizable at small social-card sizes.",
-        "image_prompt": "Minimal abstract character sheet, small map-like trace node with folded path silhouette, one tiny pointer arm, cool-gray and white palette, signal-green route highlight, neutral pose and pose drawing a workflow map, no fantasy creature features, no excessive detail."
+        "name": "Checkpoint Mender",
+        "entity_type": "object",
+        "one_line_identity": "A compact repair kit that patches broken automation checkpoints.",
+        "why_it_fits": "Close to the selected metaphor, but less personal and less expressive than Signal Tailor.",
+        "image_prompt": "Editorial repair-kit character sheet, small square kit with green patch marks and tiny tool arms, fixing checkpoint nodes, minimal ink style, no toy toolbox."
       }
     ]
   }
 }
 ```
 
-Selected direction for this run: `ip_a`, Circuit Guide.
+Selected direction for this run: `ip_a`, Signal Tailor.
 
-Reason for selection: it is the broadest fit for AI engineering articles. It can guide, diagnose, record, and point at system structure without becoming a generic person or a one-topic object.
+Reason for selection: Signal Tailor gives the creator a durable personal metaphor. It can repair broken workflows, stitch boundaries, tie together states, mark fallback routes, and appear in covers, article inserts, slides, stickers, and social cards without becoming a generic robot or software icon.
 
 ## 3. User-facing IP Card
 
-## Circuit Guide
+## Signal Tailor
 
-**One-line identity**: a calm circuit guide that helps readers find the signal path inside messy AI workflows.
+**One-line identity**: a folded field-note figure that stitches loose AI workflows into reliable delivery systems.
 
 **Visual recognition points**
 
-- Small compact robot silhouette.
-- Head shaped like a simplified circuit node.
-- Cool gray and white body with thin black line work.
-- One signal-green accent light.
-- Small probe accessory or workflow board nearby.
+- Triangular folded-paper hood.
+- One square signal-green visor.
+- Off-white field-note body with black stitch marks.
+- Green thread spool and needle-like probe.
+- A short trailing thread that can become a workflow line.
 
 **Role in content**
 
-- Guide readers through AI workflow structure.
-- Diagnose missing boundaries, hidden states, and weak fallback paths.
-- Turn abstract reliability problems into visible system checkpoints.
+- Repairs workflow gaps.
+- Stitches input boundaries, observable states, and fallback routes into one system.
+- Marks where human judgment should remain.
+- Turns "demo that ran once" into a visible broken seam.
 
 **Best-use scenes**
 
-- In front of a workflow map.
-- Beside a debugging panel.
-- Between an input boundary and a fallback route.
-- Pointing to a missing support structure in a demo pipeline.
+- Kneeling beside a broken workflow seam.
+- Pulling a green thread through checkpoints.
+- Marking a safe fallback route.
+- Holding a small field notebook with visible diagnosis marks.
 
 **Do not turn it into**
 
-- A cyberpunk robot.
-- A cute toy mascot.
-- A human engineer.
-- A glowing sci-fi character with crowded backgrounds.
+- A robot.
+- A cute doll mascot.
+- A human engineer in a cloak.
+- A fantasy wizard.
+- A generic paper note icon.
 
 ## 4. Internal IP Bible
 
 ```json
 {
-  "ip_name": "Circuit Guide",
+  "ip_name": "Signal Tailor",
   "version": "1.0",
-  "entity_type": "robot",
-  "core_identity": "A calm circuit guide that helps readers find the signal path inside messy AI workflows.",
-  "content_role": "Guide AI engineering readers through workflow structure, failure points, observability, and recovery paths.",
-  "silhouette": "Small compact robot with a rounded-square circuit-node head, simple short body, and a small probe accessory.",
-  "face_or_front": "Minimal face/front with two tiny node marks or a single calm status line, never expressive cartoon eyes.",
-  "body_or_structure": "Clean white and cool-gray body panels, thin black circuit-line details, simple arms suitable for pointing at maps or panels.",
-  "clothing_or_surface": "No clothing. Smooth technical surface with restrained circuit traces.",
+  "entity_type": "fictional_species",
+  "core_identity": "A folded field-note figure that stitches loose AI workflows into reliable delivery systems.",
+  "content_role": "Help AI engineering readers see where a workflow is torn, where states need visibility, and where human judgment should be stitched into the system.",
+  "silhouette": "Small upright folded-paper figure with a triangular hood, compact off-white body, short legs, one square signal-green visor, and a trailing green thread.",
+  "face_or_front": "One square signal-green visor on the hood front. No eyes, mouth, or expressive face.",
+  "body_or_structure": "Folded field-note paper body with visible crease line, black stitch marks on the edges, compact proportions, and a small side pouch for thread.",
+  "clothing_or_surface": "No clothing. The body itself is folded off-white paper with a few black seam marks.",
   "signature_objects": [
-    "small probe accessory",
-    "workflow board",
-    "signal-green status dot"
+    "green thread spool",
+    "needle-like probe",
+    "trailing green thread",
+    "small field-note tag"
   ],
   "palette": {
     "primary": [
-      "white",
-      "cool gray",
-      "thin black line"
+      "off-white paper",
+      "warm gray shadow",
+      "black ink line"
     ],
     "accent": [
       "signal green"
     ],
     "background": [
       "white",
-      "very light gray"
+      "very light gray",
+      "soft paper beige only as tiny texture"
     ],
     "forbidden": [
       "neon purple",
       "heavy cyberpunk blue",
-      "rainbow gradients",
-      "warm fantasy gold"
+      "rainbow gradient",
+      "cute pastel candy palette",
+      "fantasy gold"
     ]
   },
   "style_rules": {
-    "rendering": "minimal line editorial illustration",
-    "shape_language": "compact, geometric, readable at thumbnail size",
-    "texture": "clean flat fills with no heavy texture",
-    "composition": "large white space, diagrammatic scenes, clear article function",
-    "typography": "avoid text in generated images unless a tiny label is essential"
+    "rendering": "minimal ink-and-paper editorial illustration",
+    "shape_language": "folded, angular, asymmetrical, readable at thumbnail size",
+    "texture": "subtle paper grain, clean black ink marks, no heavy rendering",
+    "composition": "large white space, visible workflow seams, thread paths, and checkpoints",
+    "typography": "avoid text inside images unless using tiny abstract labels"
   },
-  "personality": "calm, precise, observant, practical, never theatrical",
+  "personality": "quiet, precise, patient, slightly stubborn, practical",
   "allowed_expressions": [
-    "neutral",
     "focused",
-    "quietly concerned",
-    "satisfied after locating a problem"
+    "carefully inspecting",
+    "quietly dissatisfied with a weak seam",
+    "calm after repair"
   ],
   "allowed_actions": [
-    "pointing with probe",
-    "standing beside workflow map",
-    "marking checkpoints",
-    "recording a diagnosis",
-    "highlighting a fallback route"
+    "stitching a broken workflow line",
+    "pulling green thread through checkpoints",
+    "pinning an input boundary",
+    "marking a fallback route",
+    "recording a diagnosis on a small field-note tag",
+    "standing beside a repaired process seam"
   ],
   "default_roles_in_illustrations": [
-    "guide",
+    "operator",
     "diagnostician",
     "recorder",
-    "observer"
+    "guide"
   ],
   "forbidden_variations": [
-    "Do not make it a humanoid engineer.",
-    "Do not turn it into a cute toy robot.",
-    "Do not add expressive cartoon eyes.",
-    "Do not use crowded sci-fi backgrounds.",
-    "Do not change the accent color away from signal green.",
-    "Do not remove the compact circuit-node head."
+    "Do not make it a robot.",
+    "Do not add human eyes, a mouth, hair, or human clothing.",
+    "Do not turn the triangular hood into a wizard hat.",
+    "Do not remove the square green visor.",
+    "Do not remove the thread spool or trailing green thread.",
+    "Do not make the body round and toy-like.",
+    "Do not use glossy 3D rendering or cyberpunk lighting."
   ],
-  "consistency_prompt_block": "Circuit Guide is a small calm robot with a compact circuit-node head, cool gray and white body, thin black line work, one signal-green accent light, and a small probe accessory. It appears in restrained minimal editorial illustrations with large white space and clear workflow diagrams.",
-  "negative_prompt_block": "no cyberpunk, no cute toy mascot, no humanoid engineer, no expressive cartoon eyes, no neon purple, no crowded sci-fi UI, no rainbow gradients, no dramatic action pose",
-  "usage_notes": "Use Circuit Guide when the article explains AI workflow structure, reliability, observability, failure recovery, or system diagnosis. The IP should clarify the argument, not decorate the page."
+  "consistency_prompt_block": "Signal Tailor is a small folded-paper field-note figure with a triangular hood, one square signal-green visor, off-white paper body, black stitch marks, a green thread spool, needle-like probe, and a trailing green thread that can become a workflow line. Use minimal ink-and-paper editorial illustration with large white space and a restrained black, off-white, warm-gray, and signal-green palette.",
+  "negative_prompt_block": "no robot, no human face, no cute doll mascot, no fantasy wizard, no cyberpunk, no glossy 3D, no neon purple, no rainbow gradient, no crowded interface, no generic paper icon",
+  "usage_notes": "Use Signal Tailor when an article discusses workflow repair, reliable delivery, process boundaries, observability, fallback routes, human judgment checkpoints, or the gap between demo and production."
 }
 ```
 
@@ -217,32 +225,32 @@ Reason for selection: it is the broadest fit for AI engineering articles. It can
     {
       "position": "after_paragraph_2",
       "section_summary": "把跑通一次误认为稳定交付。",
-      "reason": "This is the core misconception of the article and needs a visual anchor that separates a one-time demo from a production system.",
+      "reason": "This is the article's core misconception. Signal Tailor can make the failed assumption visible as a loose seam between a demo and a production system.",
       "visual_value_score": 5,
       "illustration_type": "concept_metaphor",
       "ip_role": "diagnostician",
-      "scene_brief": "Circuit Guide stands beside a fragile one-time track and points at the missing support structure beneath it.",
-      "expected_reader_effect": "Readers remember that a successful demo is not the same thing as reliable delivery."
+      "scene_brief": "Signal Tailor kneels beside a workflow strip that is only lightly tacked together. The green thread stops after one demo node, leaving the production side unstitched.",
+      "expected_reader_effect": "Readers remember that a one-time successful run is not a durable seam."
     },
     {
       "position": "after_paragraph_3",
       "section_summary": "生产级 AI 工作流需要输入边界、中间状态、回退路径。",
-      "reason": "This is the method framework and benefits from a clear process illustration.",
+      "reason": "This is the method framework and benefits from a process illustration using the thread metaphor.",
       "visual_value_score": 5,
       "illustration_type": "process_illustration",
-      "ip_role": "guide",
-      "scene_brief": "Circuit Guide stands in front of a three-part workflow map: input boundary, observable middle state, fallback path.",
-      "expected_reader_effect": "Readers get a reusable checklist for evaluating workflow readiness."
+      "ip_role": "operator",
+      "scene_brief": "Signal Tailor pulls one green thread through three labeled checkpoint shapes: boundary, visible state, fallback route.",
+      "expected_reader_effect": "Readers get a memorable checklist rather than a generic flowchart."
     },
     {
       "position": "after_paragraph_7",
       "section_summary": "可靠工作流不是拿掉人，而是把人放到关键判断点。",
-      "reason": "This is the article's final reversal and prevents a common misunderstanding about automation.",
+      "reason": "This is the final reversal. The IP can stitch human judgment into a few high-leverage nodes instead of covering the whole process with manual work.",
       "visual_value_score": 4,
       "illustration_type": "scenario",
       "ip_role": "recorder",
-      "scene_brief": "Circuit Guide marks two human review checkpoints in an otherwise automated workflow path.",
-      "expected_reader_effect": "Readers understand that human judgment should move to the highest-leverage points."
+      "scene_brief": "Signal Tailor pins two green human-review knots onto an otherwise automated thread path, then tags them as judgment points.",
+      "expected_reader_effect": "Readers understand that automation should relocate human judgment, not pretend it disappears."
     }
   ]
 }
@@ -257,33 +265,33 @@ Reason for selection: it is the broadest fit for AI engineering articles. It can
     "position": "after_paragraph_2",
     "format": "article_insert",
     "aspect_ratio": "16:9",
-    "editorial_function": "Show the difference between a demo that works once and a workflow that can reliably deliver.",
-    "ip_consistency_block": "Circuit Guide is a small calm robot with a compact circuit-node head, cool gray and white body, thin black line work, one signal-green accent light, and a small probe accessory.",
-    "scene_prompt": "Minimal editorial illustration for an AI engineering article. Circuit Guide stands beside a fragile temporary track labeled one successful demo, pointing to missing support beams underneath. In the background, a stable production pipeline appears as a clean structured path with checkpoints. Large white space, restrained thin line work, one signal-green accent.",
-    "negative_prompt": "No cyberpunk, no cute toy robot, no crowded interface, no neon purple, no generic humanoid engineer.",
-    "alt_text": "Circuit Guide points at missing support beams under a one-time AI workflow demo."
+    "editorial_function": "Show that one successful demo is only a temporary tack, not a production-grade seam.",
+    "ip_consistency_block": "Signal Tailor is a small folded-paper field-note figure with a triangular hood, one square signal-green visor, off-white paper body, black stitch marks, a green thread spool, needle-like probe, and a trailing green thread.",
+    "scene_prompt": "Minimal ink-and-paper editorial illustration. Signal Tailor kneels beside a horizontal workflow strip made from off-white paper. The first demo node is lightly tacked with one green stitch, but the production side is open and fraying. Signal Tailor points with a needle-like probe at the loose seam. Large white space, black ink line, warm gray shadows, one signal-green thread accent.",
+    "negative_prompt": "No robot, no human face, no cute doll mascot, no cyberpunk, no glossy 3D, no neon purple, no crowded UI.",
+    "alt_text": "Signal Tailor points at a loose workflow seam where one demo run failed to become reliable production."
   },
   {
     "id": "illus_02",
     "position": "after_paragraph_3",
     "format": "article_insert",
     "aspect_ratio": "16:9",
-    "editorial_function": "Turn the three production-readiness requirements into a readable workflow map.",
-    "ip_consistency_block": "Circuit Guide is a small calm robot with a compact circuit-node head, cool gray and white body, thin black line work, one signal-green accent light, and a small probe accessory.",
-    "scene_prompt": "Minimal process illustration. Circuit Guide stands in front of a clean three-part workflow map. The three sections are input boundary, observable middle state, and fallback path. Use simple boxes, arrows, and checkpoint dots. Circuit Guide points at the middle section with a small probe.",
-    "negative_prompt": "No sci-fi glow, no decorative clutter, no neon purple, no expressive cartoon face.",
-    "alt_text": "Circuit Guide explains input boundary, observable middle state, and fallback path."
+    "editorial_function": "Turn the three production-readiness requirements into one stitched checklist.",
+    "ip_consistency_block": "Signal Tailor is a small folded-paper field-note figure with a triangular hood, one square signal-green visor, off-white paper body, black stitch marks, a green thread spool, needle-like probe, and a trailing green thread.",
+    "scene_prompt": "Minimal process illustration. Signal Tailor pulls one signal-green thread through three clean checkpoint panels: input boundary, observable middle state, fallback route. Each panel is a simple off-white paper shape with black ink outline. The thread visibly connects the system into one reliable seam. Large white space, restrained editorial style.",
+    "negative_prompt": "No robot, no cute mascot, no dense dashboard, no sci-fi glow, no rainbow colors.",
+    "alt_text": "Signal Tailor stitches input boundary, observable state, and fallback route into one workflow."
   },
   {
     "id": "illus_03",
     "position": "after_paragraph_7",
     "format": "article_insert",
     "aspect_ratio": "16:9",
-    "editorial_function": "Show that reliable automation keeps humans at key judgment points.",
-    "ip_consistency_block": "Circuit Guide is a small calm robot with a compact circuit-node head, cool gray and white body, thin black line work, one signal-green accent light, and a small probe accessory.",
-    "scene_prompt": "Minimal editorial scene. Circuit Guide sits beside a quiet control console, marking two small human review checkpoints in an otherwise automated AI workflow. The workflow is a clean horizontal path; most steps are automated, but two decision nodes are highlighted in signal green.",
-    "negative_prompt": "No futuristic crowd, no cute mascot expression, no cyberpunk room, no dramatic lighting.",
-    "alt_text": "Circuit Guide marks human review checkpoints inside an automated AI workflow."
+    "editorial_function": "Show that reliable automation keeps humans at a few judgment knots.",
+    "ip_consistency_block": "Signal Tailor is a small folded-paper field-note figure with a triangular hood, one square signal-green visor, off-white paper body, black stitch marks, a green thread spool, needle-like probe, and a trailing green thread.",
+    "scene_prompt": "Minimal editorial scene. An automated workflow is shown as a clean black thread path. Signal Tailor pins two signal-green knots onto the path to indicate human judgment checkpoints. The rest of the path remains automated and quiet. Use paper texture, black ink, off-white body, green thread accent, no decorative clutter.",
+    "negative_prompt": "No humanoid engineer, no crowded team scene, no cyberpunk control room, no glossy 3D, no exaggerated emotion.",
+    "alt_text": "Signal Tailor pins human judgment checkpoints onto an automated workflow thread."
   }
 ]
 ```
@@ -294,19 +302,19 @@ Reason for selection: it is the broadest fit for AI engineering articles. It can
 问题不在模型，也不在工具。真正的问题是：你把“能跑通一次”误以为“可以稳定交付”。
 
 <!-- illustration: illus_01 after_paragraph_2 -->
-![Circuit Guide points at missing support beams under a one-time AI workflow demo.](./images/illus_01.png)
+![Signal Tailor points at a loose workflow seam where one demo run failed to become reliable production.](./images/illus_01.png)
 <!-- /illustration -->
 
 一个 AI 工作流要进入生产环境，至少需要三个东西：明确的输入边界、可观察的中间状态、失败后的回退路径。
 
 <!-- illustration: illus_02 after_paragraph_3 -->
-![Circuit Guide explains input boundary, observable middle state, and fallback path.](./images/illus_02.png)
+![Signal Tailor stitches input boundary, observable state, and fallback route into one workflow.](./images/illus_02.png)
 <!-- /illustration -->
 
 真正可靠的 AI 工作流，不是把人从系统里彻底拿掉，而是把人放到最关键的判断点上。
 
 <!-- illustration: illus_03 after_paragraph_7 -->
-![Circuit Guide marks human review checkpoints inside an automated AI workflow.](./images/illus_03.png)
+![Signal Tailor pins human judgment checkpoints onto an automated workflow thread.](./images/illus_03.png)
 <!-- /illustration -->
 ```
 
@@ -315,9 +323,9 @@ Reason for selection: it is the broadest fit for AI engineering articles. It can
 ```json
 {
   "confirmed_ip": true,
-  "ip_name": "Circuit Guide",
-  "export_skill_name": "circuit-guide-illustrations",
-  "export_skill_purpose": "Use the confirmed IP Bible to create article illustrations and visual plans.",
+  "ip_name": "Signal Tailor",
+  "export_skill_name": "signal-tailor-illustrations",
+  "export_skill_purpose": "Use the confirmed Signal Tailor IP Bible to create article illustrations and visual plans.",
   "included_files": [
     "SKILL.md",
     "agents/openai.yaml",
@@ -332,7 +340,7 @@ Reason for selection: it is the broadest fit for AI engineering articles. It can
 ## 9. Exported personal skill
 
 ```text
-circuit-guide-illustrations/
+signal-tailor-illustrations/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
@@ -343,4 +351,4 @@ circuit-guide-illustrations/
     └── output-contracts.md
 ```
 
-The exported skill is narrower than `personal-ip-illustrator`: it no longer creates many new IP candidates by default. It uses the confirmed Circuit Guide IP Bible to analyze articles, choose high-value illustration positions, and generate consistent prompts or images.
+The exported skill is narrower than `personal-ip-illustrator`: it no longer creates many new IP candidates by default. It uses the confirmed Signal Tailor IP Bible to analyze articles, choose high-value illustration positions, and generate consistent prompts or images.

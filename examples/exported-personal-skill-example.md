@@ -1,15 +1,15 @@
 # 导出的个人 Skill 示例
 
-当用户确认 `Circuit Guide` 这个 IP 后，生成器会导出一个更窄的个人 Skill。
+当用户确认 `Signal Tailor` 这个 IP 后，生成器会导出一个更窄的个人 Skill。
 
 这个个人 Skill 不再负责生成新 IP，而是只做一件事：
 
-**用确认过的 Circuit Guide 给文章做配图规划和配图生成。**
+**用确认过的 Signal Tailor 给文章做配图规划和配图生成。**
 
 ## 目录
 
 ```text
-circuit-guide-illustrations/
+signal-tailor-illustrations/
 ├── SKILL.md
 ├── agents/openai.yaml
 └── references/
@@ -22,16 +22,16 @@ circuit-guide-illustrations/
 ## 用户怎么用
 
 ```text
-Use $circuit-guide-illustrations.
+Use $signal-tailor-illustrations.
 
 帮我分析这篇文章最值得配图的位置，并生成 3 张配图 prompt。
 ```
 
 ```text
-Use $circuit-guide-illustrations.
+Use $signal-tailor-illustrations.
 
 给这篇文章做一张公众号封面图和两张正文配图。
-正文配图要保留 Circuit Guide 的克制工程感，不要变得可爱。
+正文配图要保留 Signal Tailor 的折页、绿色线束、缝合流程隐喻，不要变成机器人或可爱玩偶。
 ```
 
 ## 为什么要导出个人 Skill

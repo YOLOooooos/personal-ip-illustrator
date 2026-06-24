@@ -2,6 +2,8 @@
 
 这是一个真实跑法示例。输入是一篇短文：《为什么你的 AI 工作流总是跑不起来》。目标不是给文章随便插几张图，而是先建立一个可以复用的视觉 IP，再判断文章里哪些位置真的值得配图。
 
+这版案例重点修正了第一版的问题：不能只是生成一个“技术感角色”。个人长期 IP 必须有强识别轮廓、稳定道具、可复用内容隐喻、动作范围和明确的防漂移规则。
+
 ## 输入
 
 创作者上下文：
@@ -14,22 +16,22 @@
 
 文章：[demo-input-article.md](./demo-input-article.md)
 
-这次运行的完整输出记录在这里：
-[runs/ai-workflow-real-run/run-output.md](./runs/ai-workflow-real-run/run-output.md)
+完整输出记录：[runs/ai-workflow-real-run/run-output.md](./runs/ai-workflow-real-run/run-output.md)
 
 下面的图片是从这次运行的结果页截出来的，不是另外生成的流程示意图。
 
 ## 第一步：生成候选 IP
 
-这次选择了一个非人类角色：`Circuit Guide`。
+这次选择了一个非人类角色：`Signal Tailor`。
 
-它不是“AI 工程师”形象，而是一个小型电路向导。原因很简单：这类文章经常在讲系统、流程、失败点和可观察性，用“电路向导”比用真人讲师更稳定，也更不容易变成普通科技插画。
+它不是“AI 工程师”形象，也不是通用机器人。它是一个折页形态的信号裁缝：用绿色线束把松散的 AI 工作流缝成可以交付的系统。
 
-候选图 prompt：
+这个方向比普通技术角色更适合作为长期 IP，因为它有自己的稳定隐喻：
 
-```text
-A minimal editorial character sheet for "Circuit Guide", a small calm robot-like guide made from clean circuit-line shapes. Compact silhouette, circuit-node head, simple white and cool-gray body, one signal-green accent light, small probe accessory. Show one neutral standing pose and one pose pointing at a workflow board. Restrained AI engineering editorial style, large white space, thin black lines, no cyberpunk, no cute toy style, no neon purple.
-```
+- 线束：代表流程连接。
+- 缝线：代表系统可靠性。
+- 断口：代表 demo 和生产之间的缺口。
+- 线结：代表人类判断点。
 
 候选 IP 选择界面截图：
 
@@ -37,29 +39,30 @@ A minimal editorial character sheet for "Circuit Guide", a small calm robot-like
 
 ## 第二步：用户可读的 IP Card
 
-## Circuit Guide
+## Signal Tailor
 
-一句话人设：在复杂 AI 工作流里帮读者找到信号路径的电路向导。
+一句话人设：一个折页形态的信号裁缝，把松散 AI 工作流缝成可交付系统。
 
 看图识别点：
 
-- 小型机器人轮廓，头部像简化电路节点。
-- 主色是冷灰和白，只保留一处绿色信号灯。
-- 常带一个小探针，或者站在流程板旁边。
-- 表情克制，不卖萌，不夸张。
+- 三角折页兜帽。
+- 单个绿色方形目镜。
+- 米白纸质身体和黑色缝线。
+- 绿色线轴、针形探针、拖尾线束。
 
 它在内容里的角色：
 
-- 指出系统里的失败点。
-- 把抽象流程整理成可以观察的结构。
-- 带读者穿过复杂工作流。
+- 修补工作流断点。
+- 把输入边界、中间状态、回退路径缝起来。
+- 标记人类判断应该停留的位置。
 
 不要变成：
 
-- 赛博朋克机器人
-- 可爱玩具机器人
+- 机器人
 - 真人工程师
-- 满屏发光的科幻角色
+- 可爱玩偶吉祥物
+- 幻想法师
+- 普通纸片图标
 
 IP Card 截图：
 
@@ -71,21 +74,28 @@ IP Card 截图：
 
 ```json
 {
-  "ip_name": "Circuit Guide",
-  "entity_type": "robot",
-  "core_identity": "A calm guide for navigating AI engineering workflows.",
-  "content_role": "Guide readers through workflow structure, failure points, and observability.",
-  "silhouette": "Small compact robot, circuit-node head, simple body, small probe accessory.",
+  "ip_name": "Signal Tailor",
+  "entity_type": "fictional_species",
+  "core_identity": "A folded field-note figure that stitches loose AI workflows into reliable delivery systems.",
+  "content_role": "Help AI engineering readers see where a workflow is torn, where states need visibility, and where human judgment should be stitched into the system.",
+  "silhouette": "Small upright folded-paper figure with a triangular hood, compact off-white body, short legs, one square signal-green visor, and a trailing green thread.",
+  "signature_objects": [
+    "green thread spool",
+    "needle-like probe",
+    "trailing green thread",
+    "small field-note tag"
+  ],
   "palette": {
-    "primary": ["cool gray", "white", "thin black line"],
+    "primary": ["off-white paper", "warm gray shadow", "black ink line"],
     "accent": ["signal green"],
-    "forbidden": ["neon purple", "heavy cyberpunk blue", "rainbow gradients"]
+    "forbidden": ["neon purple", "cyberpunk blue", "rainbow gradient", "cute pastel palette"]
   },
   "forbidden_variations": [
-    "Do not make it a humanoid engineer.",
-    "Do not turn it into a cute toy robot.",
-    "Do not use crowded sci-fi backgrounds.",
-    "Do not add expressive cartoon eyes or exaggerated emotions."
+    "Do not make it a robot.",
+    "Do not add human eyes, a mouth, hair, or human clothing.",
+    "Do not turn the triangular hood into a wizard hat.",
+    "Do not remove the square green visor.",
+    "Do not remove the thread spool or trailing green thread."
   ]
 }
 ```
@@ -106,32 +116,26 @@ IP Card 截图：
     {
       "position": "after_paragraph_2",
       "section_summary": "把跑通一次误认为稳定交付。",
-      "reason": "这是文章的核心判断，读者需要一个视觉锚点来区分 demo 和生产系统。",
       "visual_value_score": 5,
       "illustration_type": "concept_metaphor",
       "ip_role": "diagnostician",
-      "scene_brief": "Circuit Guide 站在一段只跑通一次的临时轨道旁，指出轨道下方没有支撑结构。",
-      "expected_reader_effect": "让读者记住演示成功不等于稳定交付。"
+      "scene_brief": "Signal Tailor 跪在只缝了一针的 demo 节点旁，指出生产侧仍然开裂。"
     },
     {
       "position": "after_paragraph_3",
       "section_summary": "生产级 AI 工作流需要输入边界、中间状态、回退路径。",
-      "reason": "这里是方法框架，适合做流程图式插画。",
       "visual_value_score": 5,
       "illustration_type": "process_illustration",
-      "ip_role": "guide",
-      "scene_brief": "Circuit Guide 站在三段式工作流地图前，依次标出输入边界、可观察状态、回退路径。",
-      "expected_reader_effect": "帮助读者形成可复用的检查清单。"
+      "ip_role": "operator",
+      "scene_brief": "Signal Tailor 用同一根绿色线穿过输入边界、可观察状态和回退路径。"
     },
     {
       "position": "after_paragraph_7",
       "section_summary": "可靠工作流不是拿掉人，而是把人放到关键判断点。",
-      "reason": "这是文章的反直觉结论，适合用人机协作场景收束。",
       "visual_value_score": 4,
       "illustration_type": "scenario",
       "ip_role": "recorder",
-      "scene_brief": "Circuit Guide 在控制台旁记录关键判断点，人类只出现在少数审核节点上。",
-      "expected_reader_effect": "避免读者把自动化误解成彻底无人参与。"
+      "scene_brief": "Signal Tailor 在自动化路径上打出两个绿色判断结。"
     }
   ]
 }
@@ -145,7 +149,7 @@ IP Card 截图：
 作用：解释“跑通一次”和“稳定交付”的差别
 
 ```text
-Minimal editorial illustration for an AI engineering article. Circuit Guide is a small calm robot with a circuit-node head, cool gray and white body, one signal-green accent light, and a small probe accessory. Circuit Guide stands beside a fragile temporary track labeled "one successful demo", pointing to missing support beams underneath. In the background, a stable production pipeline appears as a clean structured path with checkpoints. Large white space, restrained thin line work, one signal-green accent, no cyberpunk, no cute toy robot, no crowded UI.
+Minimal ink-and-paper editorial illustration. Signal Tailor kneels beside a horizontal workflow strip made from off-white paper. The first demo node is lightly tacked with one green stitch, but the production side is open and fraying. Signal Tailor points with a needle-like probe at the loose seam. Large white space, black ink line, warm gray shadows, one signal-green thread accent.
 ```
 
 ### illus_02
@@ -154,7 +158,7 @@ Minimal editorial illustration for an AI engineering article. Circuit Guide is a
 作用：把生产级 AI 工作流的三个要素可视化
 
 ```text
-Minimal process illustration. Circuit Guide stands in front of a clean three-part workflow map. The three sections are input boundary, observable middle state, and fallback path. Use simple boxes, arrows, and checkpoint dots. Circuit Guide points at the middle section with a small probe. White background, thin black lines, cool gray shapes, one signal-green accent light. Calm engineering style, no sci-fi glow, no decorative clutter.
+Minimal process illustration. Signal Tailor pulls one signal-green thread through three clean checkpoint panels: input boundary, observable middle state, fallback route. Each panel is a simple off-white paper shape with black ink outline. The thread visibly connects the system into one reliable seam. Large white space, restrained editorial style.
 ```
 
 ### illus_03
@@ -163,7 +167,7 @@ Minimal process illustration. Circuit Guide stands in front of a clean three-par
 作用：解释“人不应该被拿掉，而应该放在关键判断点”
 
 ```text
-Minimal editorial scene. Circuit Guide sits beside a quiet control console, marking two small human review checkpoints in an otherwise automated AI workflow. The workflow is shown as a clean horizontal path; most steps are automated, but two decision nodes are highlighted in signal green. Circuit Guide records notes on a small board. Restrained white and cool-gray palette, thin line art, no cyberpunk, no futuristic crowd, no cute mascot expression.
+Minimal editorial scene. An automated workflow is shown as a clean black thread path. Signal Tailor pins two signal-green knots onto the path to indicate human judgment checkpoints. The rest of the path remains automated and quiet. Use paper texture, black ink, off-white body, green thread accent, no decorative clutter.
 ```
 
 ## 第六步：文章预览
@@ -172,13 +176,13 @@ Minimal editorial scene. Circuit Guide sits beside a quiet control console, mark
 问题不在模型，也不在工具。真正的问题是：你把“能跑通一次”误以为“可以稳定交付”。
 
 <!-- illustration: illus_01 after_paragraph_2 -->
-![Circuit Guide points at missing support beams under a one-time AI workflow demo.](./images/illus_01.png)
+![Signal Tailor points at a loose workflow seam where one demo run failed to become reliable production.](./images/illus_01.png)
 <!-- /illustration -->
 
 一个 AI 工作流要进入生产环境，至少需要三个东西：明确的输入边界、可观察的中间状态、失败后的回退路径。
 
 <!-- illustration: illus_02 after_paragraph_3 -->
-![Circuit Guide explains input boundary, observable middle state, and fallback path.](./images/illus_02.png)
+![Signal Tailor stitches input boundary, observable state, and fallback route into one workflow.](./images/illus_02.png)
 <!-- /illustration -->
 ```
 
@@ -187,7 +191,7 @@ Minimal editorial scene. Circuit Guide sits beside a quiet control console, mark
 这轮确认后，会导出一个更窄的个人 Skill：
 
 ```text
-circuit-guide-illustrations/
+signal-tailor-illustrations/
 ├── SKILL.md
 ├── agents/openai.yaml
 └── references/
@@ -200,7 +204,7 @@ circuit-guide-illustrations/
 后续使用方式：
 
 ```text
-Use $circuit-guide-illustrations.
+Use $signal-tailor-illustrations.
 
 帮我分析这篇 AI 工程文章最值得配图的位置，并生成 3 张正文配图 prompt。
 ```

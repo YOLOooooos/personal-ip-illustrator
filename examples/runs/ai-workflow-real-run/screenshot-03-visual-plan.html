@@ -17,8 +17,8 @@
         <div class="header">
           <div>
             <div class="section-label">Step 5 / Article Visual Plan</div>
-            <h1>8 个段落，只选择 3 个真正值得配图的位置</h1>
-            <p class="subtitle">Skill 不是平均插图，而是按 visual_value_score 判断哪里能提升理解、记忆和转发价值。</p>
+            <h1>让 IP 进入文章判断，而不是站在旁边装饰</h1>
+            <p class="subtitle">同一篇 8 段短文只选 3 个位置。每张图都让 Signal Tailor 执行一个编辑功能：诊断断线、缝合框架、标记判断点。</p>
           </div>
           <span class="pill">density: focused</span>
         </div>
@@ -28,27 +28,62 @@
               <h2>illus_01</h2>
               <div class="position">after_paragraph_2 · score 5 · concept metaphor</div>
             </div>
+            <div class="preview">
+              <svg viewBox="0 0 300 150" aria-label="one demo is not production">
+                <path class="thin none" d="M36 92 H106 M194 92 H264"/>
+                <path class="green-stroke none ink" d="M106 92 C128 72 153 112 194 92"/>
+                <path class="thin none" d="M194 92 C213 113 242 117 264 106"/>
+                <circle class="green" cx="106" cy="92" r="6"/><circle class="green" cx="194" cy="92" r="6"/>
+                <path class="paper ink" d="M128 34 L172 34 L188 70 L169 116 L127 116 L110 70 Z"/>
+                <rect class="green" x="134" y="58" width="40" height="16" rx="3"/>
+                <path class="thin none" d="M112 88 L79 107 M176 88 L209 76"/>
+                <path class="thin none" d="M72 116 L92 98 M222 76 L246 62"/>
+              </svg>
+            </div>
             <p class="function">把“跑通一次”误认为“稳定交付”。</p>
-            <p class="scene">Circuit Guide 站在一条只跑通一次的临时轨道旁，指出轨道下方缺少支撑结构。</p>
-            <div class="prompt">Editorial function: separate a one-time demo from a production workflow that can reliably deliver.</div>
+            <p class="scene">Signal Tailor 指出 demo 节点后面的线没有真正缝到生产侧，成功只是一针临时固定。</p>
+            <div class="prompt">Editorial function: one successful run is a loose tack, not a durable seam.</div>
           </article>
           <article class="card plan-card">
             <div>
               <h2>illus_02</h2>
               <div class="position">after_paragraph_3 · score 5 · process illustration</div>
             </div>
-            <p class="function">把输入边界、中间状态、回退路径变成可读流程图。</p>
-            <p class="scene">Circuit Guide 站在三段式工作流地图前，依次标出 input boundary、observable middle state、fallback path。</p>
-            <div class="prompt">Editorial function: turn production-readiness requirements into a reusable checklist.</div>
+            <div class="preview">
+              <svg viewBox="0 0 300 150" aria-label="three-part workflow checklist">
+                <rect class="paper thin" x="32" y="32" width="64" height="42" rx="6"/>
+                <rect class="paper thin" x="118" y="32" width="64" height="42" rx="6"/>
+                <rect class="paper thin" x="204" y="32" width="64" height="42" rx="6"/>
+                <path class="green-stroke none ink" d="M64 86 C94 115 122 89 150 105 C184 125 217 91 238 103"/>
+                <circle class="green" cx="64" cy="86" r="6"/><circle class="green" cx="150" cy="105" r="6"/><circle class="green" cx="238" cy="103" r="6"/>
+                <path class="paper ink" d="M126 73 L164 73 L178 101 L161 134 L126 134 L111 101 Z"/>
+                <rect class="green" x="131" y="94" width="35" height="14" rx="3"/>
+                <path class="thin none" d="M112 112 L82 96 M162 113 L197 99"/>
+              </svg>
+            </div>
+            <p class="function">把输入边界、中间状态、回退路径缝成一条可检查的线。</p>
+            <p class="scene">Signal Tailor 用同一根绿色线穿过三个检查点，避免三要素变成抽象列表。</p>
+            <div class="prompt">Editorial function: convert readiness requirements into a stitched checklist.</div>
           </article>
           <article class="card plan-card">
             <div>
               <h2>illus_03</h2>
               <div class="position">after_paragraph_7 · score 4 · scenario</div>
             </div>
+            <div class="preview">
+              <svg viewBox="0 0 300 150" aria-label="human judgment checkpoints">
+                <path class="thin none" d="M34 82 H266"/>
+                <path class="green-stroke none ink" d="M83 82 C111 64 132 100 158 82 C185 63 209 101 235 82"/>
+                <circle class="green" cx="83" cy="82" r="8"/><circle class="green" cx="158" cy="82" r="8"/><circle class="green" cx="235" cy="82" r="8"/>
+                <path class="paper ink" d="M113 41 L151 41 L165 76 L149 119 L112 119 L96 76 Z"/>
+                <rect class="green" x="118" y="66" width="35" height="14" rx="3"/>
+                <path class="thin none" d="M100 93 L66 101 M153 93 L181 102"/>
+                <path class="thin none" d="M73 112 L89 94 M181 102 L198 89"/>
+              </svg>
+            </div>
             <p class="function">解释可靠自动化不是拿掉人，而是把人放到关键判断点。</p>
-            <p class="scene">Circuit Guide 在自动化路径上标出两个绿色审核节点，其余步骤保持自动流转。</p>
-            <div class="prompt">Editorial function: prevent the reader from equating automation with zero human judgment.</div>
+            <p class="scene">Signal Tailor 在自动化路径上打出两个绿色判断结，让“人在哪里出现”变成可见结构。</p>
+            <div class="prompt">Editorial function: relocate human judgment to high-leverage knots.</div>
           </article>
         </div>
         <p class="note">Source: examples/runs/ai-workflow-real-run/run-output.md</p>

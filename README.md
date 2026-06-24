@@ -92,12 +92,12 @@ Use $personal-ip-illustrator to create a reusable visual IP for my AI engineerin
 
 这轮没有只输出“几张好看的图”，而是产出了一套可以继续复用的配图系统：
 
-- 视觉 IP：`Circuit Guide`，一个小型电路向导。
+- 视觉 IP：`Signal Tailor`，一个折页形态的信号裁缝。
 - 用户确认物：一张短的 IP Card，而不是一堆角色设定。
 - 内部契约：一份 IP Bible，用来限制角色漂移。
 - 配图位置：从 8 个段落里选出 3 个真正值得配图的位置。
 - 配图 prompt：每张图都说明放在哪里、解决什么理解问题。
-- 导出结果：`circuit-guide-illustrations` 个人 Skill。
+- 导出结果：`signal-tailor-illustrations` 个人 Skill。
 
 完整案例在这里：[examples/ai-workflow-case-study.md](./examples/ai-workflow-case-study.md)。
 完整运行记录在这里：[examples/runs/ai-workflow-real-run/run-output.md](./examples/runs/ai-workflow-real-run/run-output.md)。

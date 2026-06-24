@@ -4,7 +4,7 @@
 
 这不是一个“帮你生成头像”的 prompt 仓库。它做的是一套完整工作流：
 
-**参考图 / 风格选择 -> 可视化候选 IP -> 用户看图确认 -> IP Card -> 内部 IP Bible -> 文章配图位置判断 -> 个人专属配图 Skill**
+**创作者人格简报 -> 参考图 / 风格选择 -> 可视化候选 IP -> 用户看图确认 -> IP Card -> 内部 IP Bible -> 文章配图位置判断 -> 个人专属配图 Skill**
 
 下面这些截图来自同一轮真实运行记录，而不是单独生成的宣传示意图。完整运行输出在
 [examples/runs/ai-workflow-real-run/run-output.md](./examples/runs/ai-workflow-real-run/run-output.md)。
@@ -28,6 +28,7 @@
 这个 Skill 是一个 **个人 IP 生成器**：
 
 - 用户可以上传参考图。
+- 用户可以先提炼自己的创作者人格和反感风格。
 - 用户可以选择不同风格。
 - 用户看候选图选择，而不是读一堆设定。
 - IP Bible 退到幕后，用户只看简单的 IP Card。
@@ -43,29 +44,34 @@
    - 参考图，可选
    - 偏好的视觉风格，可选
 
-2. **生成 Visual Candidate Sheet**
+2. **生成 Creator Personality Brief**
+   - 提炼创作者的气质、价值观、反复表达的立场、视觉偏好和反感风格。
+   - 如果素材不足，先让用户提供 3-5 篇代表内容、个人主页或几个关键词。
+   - 所有候选 IP 都要能解释“为什么像这个人”，而不是只解释“为什么适合这个题材”。
+
+3. **生成 Visual Candidate Sheet**
    - 生成 6-12 个可视化 IP 候选。
    - 每个候选只给短说明。
    - 用户通过看图选择，而不是阅读复杂设定。
 
-3. **视觉选择与微调**
+4. **视觉选择与微调**
    - 用户选择一个候选。
    - 可以反馈：保留什么、删掉什么、更专业/更可爱/更克制/更锋利。
    - Skill 生成 3-6 个细化版本。
 
-4. **确认 IP**
+5. **确认 IP**
    - 输出用户可读的 IP Card。
    - 同时生成内部使用的 IP Bible。
 
-5. **分析文章配图位置**
+6. **分析文章配图位置**
    - 拆分文章段落。
    - 给每段打 `visual_value_score`。
    - 只选择最值得视觉化的位置。
 
-6. **生成配图规格**
+7. **生成配图规格**
    - 每张图包含位置、画幅、编辑功能、IP 角色、场景 prompt、negative prompt、alt text。
 
-7. **导出个人专属 Skill**
+8. **导出个人专属 Skill**
    - 生成类似 `notebook-robot-illustrations` 的独立 Skill。
    - 后续用户直接用自己的 Skill 给文章配图。
 
@@ -92,7 +98,8 @@ Use $personal-ip-illustrator to create a reusable visual IP for my AI engineerin
 
 这轮没有只输出“几张好看的图”，而是产出了一套可以继续复用的配图系统：
 
-- 视觉 IP：`Signal Tailor`，一个折页形态的信号裁缝。
+- 创作者人格：冷静但挑剔、反 demo、重交付、喜欢把模糊东西拆成可检查结构。
+- 视觉 IP：`Signal Tailor`，一个带诊断气质的折页信号裁缝。
 - 用户确认物：一张短的 IP Card，而不是一堆角色设定。
 - 内部契约：一份 IP Bible，用来限制角色漂移。
 - 配图位置：从 8 个段落里选出 3 个真正值得配图的位置。
@@ -147,6 +154,7 @@ Use $personal-ip-illustrator.
 完整跑完一轮后，会得到：
 
 - Visual Candidate Sheet
+- Creator Personality Brief
 - 用户可读的 IP Card
 - Agent 使用的 IP Bible
 - Article Visual Plan
@@ -171,6 +179,12 @@ Use $personal-ip-illustrator.
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       └── references/
+│           ├── creator-personality.md
+│           ├── style-system.md
+│           ├── ip-bible-schema.md
+│           ├── article-visual-planning.md
+│           ├── output-contracts.md
+│           └── personal-skill-export.md
 └── examples/
     ├── runs/
     │   └── ai-workflow-real-run/

@@ -9,6 +9,7 @@ The generator skill creates and calibrates an IP. The exported personal skill us
 The exported skill should:
 
 - Analyze articles and select high-value illustration positions.
+- Preserve the creator personality anchor that made the IP personal.
 - Use the confirmed IP Bible as a consistency contract.
 - Generate cover, article insert, social card, slide, and sticker prompts or images.
 - Return annotated article previews with insertion markers.
@@ -30,6 +31,7 @@ The exported skill should not:
 └── references/
     ├── ip-card.md
     ├── ip-bible.md
+    ├── creator-personality.md
     ├── article-visual-planning.md
     └── output-contracts.md
 ```
@@ -70,16 +72,18 @@ Do not redesign the IP unless the user explicitly asks for an IP Bible update.
 ## Workflow
 
 1. Read `references/ip-bible.md`.
-2. If the user wants a quick reminder of the IP, summarize `references/ip-card.md` instead of exposing the full Bible.
-3. If the user provides an article, analyze it with `references/article-visual-planning.md`.
-4. Select only high-value illustration positions.
-5. For each selected position, define the image's editorial function, illustration type, IP role, aspect ratio, prompt, negative prompt, and alt text.
-6. If image generation is available and requested, generate images. Otherwise return prompts.
-7. Return an annotated article preview using `references/output-contracts.md`.
+2. Read `references/creator-personality.md` so the IP keeps the creator's stance, taste, and anti-taste.
+3. If the user wants a quick reminder of the IP, summarize `references/ip-card.md` instead of exposing the full Bible.
+4. If the user provides an article, analyze it with `references/article-visual-planning.md`.
+5. Select only high-value illustration positions.
+6. For each selected position, define the image's editorial function, illustration type, IP role, aspect ratio, prompt, negative prompt, and alt text.
+7. If image generation is available and requested, generate images. Otherwise return prompts.
+8. Return an annotated article preview using `references/output-contracts.md`.
 
 ## Consistency Rules
 
 - Preserve the IP's species, silhouette, palette, signature objects, and personality.
+- Preserve the creator's stance and anti-taste from `references/creator-personality.md`.
 - Let pose, expression, camera angle, props, and scene change only within the IP Bible.
 - Make the IP perform a useful editorial role: guide, operator, observer, diagnostician, recorder, challenger, narrator, or witness.
 - Reject generic mascot poses that do not clarify the article.
@@ -87,6 +91,7 @@ Do not redesign the IP unless the user explicitly asks for an IP Bible update.
 ## References
 
 - Read `references/ip-bible.md` before generating any illustration.
+- Read `references/creator-personality.md` before generating any illustration.
 - Read `references/article-visual-planning.md` when selecting article illustration positions.
 - Read `references/output-contracts.md` when formatting deliverables.
 ```
@@ -114,6 +119,20 @@ Convert the confirmed IP Bible into Markdown. Include:
 - Consistency prompt block
 - Negative prompt block
 - Usage notes
+
+## Exported creator-personality.md
+
+Convert the Creator Personality Brief into Markdown. Include:
+
+- Creator temperament
+- Values
+- Recurring stance
+- Voice
+- Visual taste
+- Anti-taste
+- Reader feeling
+- Personal motifs
+- Evidence and assumptions
 
 ## Exported ip-card.md
 
@@ -144,6 +163,7 @@ Before handing off the exported skill, verify:
 - `SKILL.md` frontmatter has only `name` and `description`.
 - The skill name matches the folder name.
 - `references/ip-bible.md` contains the confirmed IP Bible, not a candidate draft.
+- `references/creator-personality.md` explains why the IP feels like this creator.
 - `references/ip-card.md` lets a non-technical user understand what was confirmed without reading the Bible.
 - The personal skill can be used without loading the original generator skill.
 - The user receives the folder path and, if useful, a zip file.

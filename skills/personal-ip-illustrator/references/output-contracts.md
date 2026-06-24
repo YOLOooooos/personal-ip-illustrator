@@ -2,6 +2,37 @@
 
 Use these structures so results are easy to reuse in a repository, article editor, or SaaS prototype.
 
+## Creator Personality Brief
+
+Create this before generating IP candidates. The goal is to make the IP feel like this creator, not merely like this topic.
+
+```json
+{
+  "creator_personality": {
+    "content_domain": "",
+    "audience": "",
+    "temperament": [],
+    "values": [],
+    "recurring_stance": [],
+    "voice": "",
+    "humor_level": "none | dry | playful | sharp | absurd",
+    "visual_taste": [],
+    "anti_taste": [],
+    "reader_feeling": "",
+    "personal_symbols_or_motifs": [],
+    "evidence": [
+      {
+        "source": "profile | article | post | user_statement | inference",
+        "detail": ""
+      }
+    ],
+    "assumptions": []
+  }
+}
+```
+
+When evidence is weak, label assumptions clearly. Do not hide guessed personality traits inside the IP Bible.
+
 ## Visual Candidate Sheet
 
 If image generation is available, create or request a visual sheet before final IP selection.
@@ -19,6 +50,8 @@ If image generation is available, create or request a visual sheet before final 
         "entity_type": "",
         "one_line_identity": "",
         "why_it_fits": "",
+        "personality_fit": "",
+        "personality_risk": "",
         "image_prompt": ""
       }
     ]
@@ -63,6 +96,10 @@ Show this after the user selects a visual direction. Keep it short enough that a
 
 **它在内容里的角色**
 - {guide/operator/observer/etc.}
+
+**为什么像这个创作者**
+- {creator personality trait expressed visually}
+- {creator stance or taste expressed visually}
 
 **适合出现的场景**
 - {scene 1}
@@ -138,14 +175,15 @@ If no images were generated, use placeholders:
 For a full run, return:
 
 1. Short diagnosis of the article's visual needs.
-2. Visual candidate sheet or selected reference image summary.
-3. User-facing IP card.
-4. Internal IP Bible.
-5. Article visual plan.
-6. Illustration specs or generated images.
-7. Annotated article preview.
-8. Exported personal skill package, if the IP has been confirmed.
-9. Open questions or next iteration choices.
+2. Creator Personality Brief.
+3. Visual candidate sheet or selected reference image summary.
+4. User-facing IP card.
+5. Internal IP Bible.
+6. Article visual plan.
+7. Illustration specs or generated images.
+8. Annotated article preview.
+9. Exported personal skill package, if the IP has been confirmed.
+10. Open questions or next iteration choices.
 
 ## Confirmed IP Handoff
 
@@ -162,6 +200,7 @@ When the user confirms the IP, add this handoff block before exporting:
     "agents/openai.yaml",
     "references/ip-card.md",
     "references/ip-bible.md",
+    "references/creator-personality.md",
     "references/article-visual-planning.md",
     "references/output-contracts.md"
   ]

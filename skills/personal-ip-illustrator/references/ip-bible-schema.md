@@ -12,6 +12,7 @@ The user should not have to read the full IP Bible. Show the user a short IP Car
   "version": "1.0",
   "entity_type": "human | animal | robot | object | symbol | abstract_creature | fictional_species",
   "core_identity": "",
+  "creator_personality_anchor": "",
   "content_role": "",
   "silhouette": "",
   "face_or_front": "",
@@ -45,6 +46,7 @@ The user should not have to read the full IP Bible. Show the user a short IP Car
 ## Field Guidance
 
 - **core_identity**: what the IP represents, not just how it looks.
+- **creator_personality_anchor**: why this IP feels like this creator specifically.
 - **content_role**: why this IP belongs in the creator's articles.
 - **silhouette**: the highest-priority recognition feature.
 - **signature_objects**: only include objects that can recur without clutter.
@@ -55,6 +57,7 @@ The user should not have to read the full IP Bible. Show the user a short IP Car
 ## Consistency Rules
 
 - Preserve species, silhouette, palette, and signature objects across all prompts.
+- Preserve the creator personality anchor across all prompts. The IP can change scene or mood, but it must not lose the creator's stance and taste.
 - Let pose, camera angle, prop scale, and scene vary.
 - Do not make the IP a copy of a real person unless the user explicitly owns that likeness and asks for it.
 - Do not rely on a single reference image. Convert the image into stable verbal rules.
@@ -66,6 +69,7 @@ When the user wants a fast draft, return these fields first:
 - `ip_name`
 - `entity_type`
 - `core_identity`
+- `creator_personality_anchor`
 - `silhouette`
 - `palette`
 - `style_rules`

@@ -9,7 +9,7 @@ description: Create reusable personal visual IP systems for content illustration
 
 Create a reusable visual IP system for creators. Treat the work as visual editorial design: define a stable IP, decide where an article deserves illustrations, then generate scene specs or images that help readers understand the content.
 
-Do not merely create a mascot. The IP must carry meaning inside the creator's content.
+Do not merely create a mascot. The IP must carry the creator's personality, point of view, and content taste.
 
 ## Mode Selection
 
@@ -30,13 +30,19 @@ If essential information is missing, ask at most 3 questions. Prefer reasonable 
    - If the user provides articles or posts, infer context from them.
    - If the user uploads reference images, inspect them before proposing candidates. Use `references/reference-image-workflow.md`.
    - If the user provides a preferred style, use it. Otherwise offer 6-10 style directions from `references/style-system.md`.
+   - Create a **Creator Personality Brief** before generating IP candidates. Use `references/creator-personality.md`.
+   - Capture the creator's temperament, values, recurring stance, humor level, visual taste, anti-tastes, and how they want readers to feel.
+   - If personality evidence is thin, ask for 3-5 representative posts, profile text, or adjectives. If the user wants to proceed quickly, infer cautiously and label assumptions.
 
-2. **Generate visual IP candidates**
+2. **Generate personality-fit visual IP candidates**
    - Separate style from entity. The entity can be a human, animal, robot, object, symbol, abstract creature, or fictional species.
+   - Every candidate must be a translation of the Creator Personality Brief, not only the article topic.
+   - Make the candidate's personality visible through silhouette, posture, props, expression range, material, and action habits.
    - Generate 6-12 candidate IP directions, but make selection visual-first.
    - If image generation is available, create a candidate sheet or grouped image set. Each candidate should show at least one neutral pose and one content-use pose.
    - If image generation is not available, output candidate prompts and explicitly ask the user to generate or upload the resulting images before final selection.
    - Show only a short caption under each candidate: name, entity type, 1-line identity, and why it fits. Do not ask the user to evaluate long technical descriptions.
+   - Include a short **personality fit note** for each candidate: which creator trait it expresses and which trait it may fail to express.
 
 3. **Run a visual selection loop**
    - Ask the user to choose images, not IP Bible text.
@@ -47,6 +53,7 @@ If essential information is missing, ask at most 3 questions. Prefer reasonable 
 4. **Create the user-facing IP card and internal IP Bible**
    - After the user confirms a visual direction, first return a simple IP card using `references/output-contracts.md`.
    - Treat the IP card as the user's confirmation artifact. Keep it short, visual, and easy to scan.
+   - The IP card must include a "Why it feels like this creator" section in plain language.
    - Then write the structured IP Bible using `references/ip-bible-schema.md`.
    - Do not expect the user to read or approve raw IP Bible JSON. Use it as the machine-readable contract behind the scenes.
    - Preserve stable identity features. Avoid overfitting to one pose, outfit, or camera angle.
@@ -67,7 +74,7 @@ If essential information is missing, ask at most 3 questions. Prefer reasonable 
 7. **Return a usable package**
    - Use `references/output-contracts.md` for output structure.
    - For article work, return an annotated article preview with insertion markers.
-   - For open-source skill demos, include the candidate visual sheet, selected IP card, internal IP Bible, visual plan, and final image prompts.
+   - For open-source skill demos, include the Creator Personality Brief, candidate visual sheet, selected IP card, internal IP Bible, visual plan, and final image prompts.
 
 8. **Export the confirmed personal IP skill**
    - When the user confirms the IP Bible, offer to generate a dedicated skill folder for that creator's IP.
@@ -80,6 +87,10 @@ If essential information is missing, ask at most 3 questions. Prefer reasonable 
 
 Reject or revise outputs that fail any of these checks:
 
+- The IP could belong to any creator in the same niche.
+- The candidate only reflects the article topic, not the creator's personality.
+- The IP's posture, props, or expression do not communicate the creator's temperament.
+- The IP has no clear anti-taste or forbidden drift tied to the creator's brand.
 - The IP cannot be recognized after changing topic, pose, or scene.
 - The visual plan inserts images at low-value decorative locations.
 - The image prompt describes a nice picture but not the article's idea.
@@ -92,6 +103,7 @@ Reject or revise outputs that fail any of these checks:
 
 ## References
 
+- Read `references/creator-personality.md` before generating IP candidates.
 - Read `references/style-system.md` when choosing or explaining illustration styles.
 - Read `references/reference-image-workflow.md` when the user uploads or links reference images.
 - Read `references/ip-bible-schema.md` when creating or revising an IP Bible.

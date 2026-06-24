@@ -15,6 +15,7 @@ signal-tailor-illustrations/
 └── references/
     ├── ip-card.md
     ├── ip-bible.md
+    ├── creator-personality.md
     ├── article-visual-planning.md
     └── output-contracts.md
 ```
@@ -42,4 +43,5 @@ Use $signal-tailor-illustrations.
 
 - 用户不用再读 IP Bible。
 - Agent 不用每次重新猜角色。
+- Agent 不用每次重新猜这个角色为什么像这个创作者。
 - 后续所有文章都能保持同一个视觉身份。

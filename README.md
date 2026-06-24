@@ -81,6 +81,21 @@ Use $personal-ip-illustrator to create a reusable visual IP for my AI engineerin
 如果你的环境没有图像生成工具，它会先输出候选图 prompt 和配图 prompt。  
 如果你的环境有图像生成工具，它可以进一步生成候选图和最终配图。
 
+## 一个真实案例
+
+我用一篇短文《为什么你的 AI 工作流总是跑不起来》跑了一轮。
+
+这轮没有只输出“几张好看的图”，而是产出了一套可以继续复用的配图系统：
+
+- 视觉 IP：`Circuit Guide`，一个小型电路向导。
+- 用户确认物：一张短的 IP Card，而不是一堆角色设定。
+- 内部契约：一份 IP Bible，用来限制角色漂移。
+- 配图位置：从 8 个段落里选出 3 个真正值得配图的位置。
+- 配图 prompt：每张图都说明放在哪里、解决什么理解问题。
+- 导出结果：`circuit-guide-illustrations` 个人 Skill。
+
+完整案例在这里：[examples/ai-workflow-case-study.md](./examples/ai-workflow-case-study.md)。
+
 ## 示例 Prompt
 
 ```text
@@ -128,13 +143,11 @@ Use $personal-ip-illustrator.
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       └── references/
-├── examples/
-│   ├── demo-input-article.md
-│   ├── example-output.md
-│   └── exported-personal-skill-example.md
-└── launch/
-    ├── github-profile.md
-    └── launch-posts.md
+└── examples/
+    ├── ai-workflow-case-study.md
+    ├── demo-input-article.md
+    ├── example-output.md
+    └── exported-personal-skill-example.md
 ```
 
 ## 适合谁
@@ -152,7 +165,7 @@ Use $personal-ip-illustrator.
 
 ## 路线图
 
-- [ ] 补充更多真实案例
+- [x] 补充第一个真实案例
 - [ ] 增加候选图板模板
 - [ ] 增加个人 Skill 自动导出脚本
 - [ ] 增加网页预览 demo

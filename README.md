@@ -6,6 +6,11 @@
 
 **参考图 / 风格选择 -> 可视化候选 IP -> 用户看图确认 -> IP Card -> 内部 IP Bible -> 文章配图位置判断 -> 个人专属配图 Skill**
 
+下面这些截图来自同一轮真实运行记录，而不是单独生成的宣传示意图。完整运行输出在
+[examples/runs/ai-workflow-real-run/run-output.md](./examples/runs/ai-workflow-real-run/run-output.md)。
+
+![Real run candidate sheet](./docs/assets/real-run-01-candidate-sheet.png)
+
 ## 解决什么问题
 
 很多创作者已经会用 AI 生图，但仍然卡在三个地方：
@@ -95,6 +100,23 @@ Use $personal-ip-illustrator to create a reusable visual IP for my AI engineerin
 - 导出结果：`circuit-guide-illustrations` 个人 Skill。
 
 完整案例在这里：[examples/ai-workflow-case-study.md](./examples/ai-workflow-case-study.md)。
+完整运行记录在这里：[examples/runs/ai-workflow-real-run/run-output.md](./examples/runs/ai-workflow-real-run/run-output.md)。
+
+候选 IP 选择界面截图：
+
+![Real run candidate sheet](./docs/assets/real-run-01-candidate-sheet.png)
+
+用户确认用的 IP Card 截图：
+
+![Real run IP card](./docs/assets/real-run-02-ip-card.png)
+
+文章配图位置分析截图：
+
+![Real run article visual plan](./docs/assets/real-run-03-visual-plan.png)
+
+导出的个人 Skill 截图：
+
+![Real run exported personal skill](./docs/assets/real-run-04-exported-skill.png)
 
 ## 示例 Prompt
 
@@ -138,12 +160,20 @@ Use $personal-ip-illustrator.
 .
 ├── README.md
 ├── LICENSE
+├── docs/
+│   └── assets/
+│       ├── real-run-01-candidate-sheet.png
+│       ├── real-run-02-ip-card.png
+│       ├── real-run-03-visual-plan.png
+│       └── real-run-04-exported-skill.png
 ├── skills/
 │   └── personal-ip-illustrator/
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       └── references/
 └── examples/
+    ├── runs/
+    │   └── ai-workflow-real-run/
     ├── ai-workflow-case-study.md
     ├── demo-input-article.md
     ├── example-output.md

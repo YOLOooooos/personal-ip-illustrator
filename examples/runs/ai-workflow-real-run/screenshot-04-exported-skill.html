@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real run exported skill</title>
+  <link rel="stylesheet" href="./screenshot-style.css">
+</head>
+<body>
+  <main class="screen">
+    <section class="shell">
+      <div class="topbar">
+        <div class="brand"><span class="mark"></span> personal-ip-illustrator</div>
+        <div class="meta"><span class="pill">real run</span><span class="pill">export personal skill</span><span class="pill">confirmed_ip: true</span></div>
+      </div>
+      <div class="content">
+        <div class="header">
+          <div>
+            <div class="section-label">Step 8 / Export Personal Skill</div>
+            <h1>把确认后的 IP 导出成独立 Skill</h1>
+            <p class="subtitle">这一步是项目的关键价值：用户以后不再重复创建 IP，而是直接用自己的 `circuit-guide-illustrations` 给文章做配图。</p>
+          </div>
+          <span class="pill">circuit-guide-illustrations</span>
+        </div>
+        <div class="export-layout">
+          <pre class="tree">circuit-guide-illustrations/
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+└── references/
+    ├── ip-card.md
+    ├── ip-bible.md
+    ├── article-visual-planning.md
+    └── output-contracts.md</pre>
+          <div class="handoff">
+            <article class="card">
+              <h2>Confirmed IP Handoff</h2>
+              <div class="kv"><strong>confirmed_ip</strong><span>true</span></div>
+              <div class="kv"><strong>ip_name</strong><span>Circuit Guide</span></div>
+              <div class="kv"><strong>skill_name</strong><span>circuit-guide-illustrations</span></div>
+              <div class="kv"><strong>purpose</strong><span>Use the confirmed IP Bible to create article illustrations and visual plans.</span></div>
+            </article>
+            <article class="card">
+              <h2>What changes after export</h2>
+              <ul>
+                <li>不再默认生成一堆新 IP 候选</li>
+                <li>固定使用 Circuit Guide 的 IP Bible</li>
+                <li>继续判断文章最高价值配图位置</li>
+                <li>输出正文配图、封面、社交卡片或 slide prompts</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <p class="note">Source: examples/runs/ai-workflow-real-run/run-output.md</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

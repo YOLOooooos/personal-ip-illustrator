@@ -14,6 +14,11 @@
 
 文章：[demo-input-article.md](./demo-input-article.md)
 
+这次运行的完整输出记录在这里：
+[runs/ai-workflow-real-run/run-output.md](./runs/ai-workflow-real-run/run-output.md)
+
+下面的图片是从这次运行的结果页截出来的，不是另外生成的流程示意图。
+
 ## 第一步：生成候选 IP
 
 这次选择了一个非人类角色：`Circuit Guide`。
@@ -25,6 +30,10 @@
 ```text
 A minimal editorial character sheet for "Circuit Guide", a small calm robot-like guide made from clean circuit-line shapes. Compact silhouette, circuit-node head, simple white and cool-gray body, one signal-green accent light, small probe accessory. Show one neutral standing pose and one pose pointing at a workflow board. Restrained AI engineering editorial style, large white space, thin black lines, no cyberpunk, no cute toy style, no neon purple.
 ```
+
+候选 IP 选择界面截图：
+
+![Real run candidate sheet](../docs/assets/real-run-01-candidate-sheet.png)
 
 ## 第二步：用户可读的 IP Card
 
@@ -51,6 +60,10 @@ A minimal editorial character sheet for "Circuit Guide", a small calm robot-like
 - 可爱玩具机器人
 - 真人工程师
 - 满屏发光的科幻角色
+
+IP Card 截图：
+
+![Real run IP card](../docs/assets/real-run-02-ip-card.png)
 
 ## 第三步：内部 IP Bible 摘要
 
@@ -80,6 +93,10 @@ A minimal editorial character sheet for "Circuit Guide", a small calm robot-like
 ## 第四步：文章配图位置判断
 
 文章一共有 8 个短段落。Skill 没有每段都配图，只选了 3 个位置。
+
+配图位置分析截图：
+
+![Real run article visual plan](../docs/assets/real-run-03-visual-plan.png)
 
 ```json
 {
@@ -187,5 +204,9 @@ Use $circuit-guide-illustrations.
 
 帮我分析这篇 AI 工程文章最值得配图的位置，并生成 3 张正文配图 prompt。
 ```
+
+导出结果截图：
+
+![Real run exported personal skill](../docs/assets/real-run-04-exported-skill.png)
 
 这个案例验证的是完整链路：先把 IP 稳定下来，再让它服务文章表达。不是先有图，再反过来解释图为什么存在。
